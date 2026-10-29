@@ -127,7 +127,7 @@ pv.onclick=()=>w.go(-1);nx.onclick=()=>w.go(1);g.addEventListener('scroll',upd,{
 (()=>{const box=document.getElementById('shs');if(!box)return;const $=id=>document.getElementById(id);
 let cur={},last=null;const say=t=>{$('shs-msg').textContent=t};
 function open(b){const d=b.dataset;cur={url:d.url,title:d.title,text:d.text,image:d.image};last=b;
-$('shs-title').textContent=cur.title;$('shs-native').hidden=!navigator.share;say('');box.hidden=false;
+$('shs-title').textContent=cur.title;$('shs-native').hidden=!navigator.share;say('');box.hidden=false;kakao();
 document.documentElement.classList.add('shs-lock')}
 function close(){box.hidden=true;document.documentElement.classList.remove('shs-lock');last&&last.focus&&last.focus()}
 async function copy(){try{await navigator.clipboard.writeText(cur.url);return true}catch(e){}
@@ -137,7 +137,7 @@ const pop=u=>window.open(u,'_blank','noopener,width=640,height=720'),E=encodeURI
 function kakao(){if(!KAKAO_KEY)return Promise.resolve(false);kr=kr||new Promise(res=>{const s=document.createElement('script');
 s.src='https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';s.onload=()=>{try{if(!Kakao.isInitialized())Kakao.init(KAKAO_KEY);
 res(true)}catch(e){res(false)}};s.onerror=()=>res(false);document.head.appendChild(s)});return kr}
-const act={async kakao(){if(await kakao()){Kakao.Share.sendDefault({objectType:'feed',content:{title:cur.title,
+const act={async kakao(){if(window.Kakao&&Kakao.isInitialized&&Kakao.isInitialized()||await kakao()){Kakao.Share.sendDefault({objectType:'feed',content:{title:cur.title,
 description:cur.text,imageUrl:cur.image,link:{mobileWebUrl:cur.url,webUrl:cur.url}},
 buttons:[{title:'숙소 보러 가기',link:{mobileWebUrl:cur.url,webUrl:cur.url}}]});return}
 if(navigator.share){try{await navigator.share({title:cur.title,text:cur.text,url:cur.url})}catch(e){}return}
