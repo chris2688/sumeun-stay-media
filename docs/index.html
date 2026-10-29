@@ -147,7 +147,7 @@ const p=new URLSearchParams(location.search);if(p.get('q')){q.value=p.get('q')}a
 
 document.querySelectorAll('.galwrap').forEach(w=>{const g=w.querySelector('.gal'),pg=w.querySelector('.pg'),
 pv=w.querySelector('.arr.prev'),nx=w.querySelector('.arr.next'),n=g.children.length,
-cur=()=>Math.round(g.scrollLeft/g.clientWidth);
+cur=()=>g.clientWidth?Math.round(g.scrollLeft/g.clientWidth):0;  // 다른 쪽에 숨은 카드는 폭 0 → NaN 나던 것(10-29)
 // 지금 사진 + 다음 2장은 미리 받아 둔다 — 넘길 때 빈 칸이 잠깐 보이던 것(10-29)
 const pre=i=>{for(let k=i;k<=i+2&&k<n;k++)g.children[k].loading='eager'};
 const upd=()=>{const i=cur();pg.textContent=(i+1)+' / '+n;pv.disabled=i<=0;nx.disabled=i>=n-1;pre(i)};
