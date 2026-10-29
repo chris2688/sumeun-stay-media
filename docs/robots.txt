@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sumeunstay.com/sitemap.xml
+
+#DaumWebMasterTool:c387c0e4b4fd4f56d30e1697c3a6112b3fda7355cae67948051ebc9a5ed850ee:/muGpe/rLcLTp+f7AlrcFg==
