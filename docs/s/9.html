@@ -123,7 +123,7 @@ footer{padding:6px 18px 34px;font-size:11.5px;color:var(--sub);line-height:1.6;t
 </ul><p class="shs-msg" id="shs-msg" role="status" aria-live="polite"></p></div></div><button id="totop" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:`smooth`})"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button><script>(()=>{const b=document.getElementById("totop"),f=()=>b.classList.toggle("on",scrollY>120);addEventListener("scroll",f,{passive:true});f()})()</script><script>const KAKAO_KEY="f168a2d2ac891fa3535612a5315a7374";
 document.querySelectorAll('.galwrap').forEach(w=>{const g=w.querySelector('.gal'),pg=w.querySelector('.pg'),
 pv=w.querySelector('.arr.prev'),nx=w.querySelector('.arr.next'),n=g.children.length,
-cur=()=>g.clientWidth?Math.round(g.scrollLeft/g.clientWidth):0;  // 다른 쪽에 숨은 카드는 폭 0 → NaN 나던 것(10-29)
+cur=()=>Math.round(g.scrollLeft/g.clientWidth);
 // 지금 사진 + 다음 2장은 미리 받아 둔다 — 넘길 때 빈 칸이 잠깐 보이던 것(10-29)
 const pre=i=>{for(let k=i;k<=i+2&&k<n;k++)g.children[k].loading='eager'};
 const upd=()=>{const i=cur();pg.textContent=(i+1)+' / '+n;pv.disabled=i<=0;nx.disabled=i>=n-1;pre(i)};
