@@ -1,0 +1,23 @@
+{
+ "name": "숨은숙소",
+ "short_name": "숨은숙소",
+ "description": "유명해지기 전에 가는 국내 숙소",
+ "start_url": "/",
+ "scope": "/",
+ "display": "browser",
+ "lang": "ko",
+ "background_color": "#ffffff",
+ "theme_color": "#ffffff",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
