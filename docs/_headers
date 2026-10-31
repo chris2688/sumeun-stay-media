@@ -1,5 +1,5 @@
-/img/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/list.json
+  Cache-Control: public, max-age=300
 /*.png
   Cache-Control: public, max-age=604800
 /favicon.ico
