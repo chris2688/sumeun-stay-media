@@ -94,6 +94,16 @@ html.shs-lock,html.shs-lock body{overflow:hidden}
 .empty{text-align:center;color:var(--sub);padding:50px 0;font-size:14px}
 .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal::-webkit-scrollbar{display:none}
 .gal img{flex:none;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start}
+.gal img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+#cards .gal img{cursor:pointer}
+.zv{position:fixed;inset:0;z-index:100;background:#000}.zv[hidden]{display:none}
+.zs{position:absolute;inset:0;overflow:auto;display:flex;touch-action:pan-x pan-y;scrollbar-width:none}.zs::-webkit-scrollbar{display:none}
+.zs img{margin:auto;flex:none;max-width:none;height:auto;cursor:zoom-in;user-select:none;-webkit-user-drag:none}.zv.zoom .zs img{cursor:zoom-out}
+.zx{position:absolute;top:calc(10px + env(safe-area-inset-top));right:10px;width:44px;height:44px;border:0;border-radius:50%;
+ background:rgba(0,0,0,.45);color:#fff;font-size:20px;cursor:pointer}
+.zc{position:absolute;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);background:rgba(0,0,0,.55);
+ color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px}
+.zv.zoom .arr,.zv.zoom .zc{display:none}
 .arr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;border:0;background:none;
  padding:0;cursor:pointer;color:rgba(255,255,255,.82);font-size:44px;font-weight:300;line-height:60px;text-align:center;
  text-shadow:0 1px 3px rgba(0,0,0,.55),0 0 12px rgba(0,0,0,.35)}
